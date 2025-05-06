@@ -1,0 +1,31 @@
+<div
+  class="banner"
+  [style.backgroundColor]="images[currentIndex].bgColor"
+>
+  <div class="container">
+    <div class="image">
+      <img
+        [src]="images[currentIndex].src"
+        alt="{{ communities[currentIndex].platform }}"
+        class="billboard-image"
+      />
+    </div>
+
+    <div class="content">
+      <!-- Platform Logo Above the Tagline -->
+      <h1>{{ communities[currentIndex].tagline }}</h1>
+      <p class="description">{{ communities[currentIndex].description }}</p>
+      <p class="body">{{ communities[currentIndex].content }}</p>
+
+      <!-- Feature List Fixed -->
+      <ul *ngIf="communities[currentIndex].features?.length">
+        <li *ngFor="let feature of communities[currentIndex].features">
+          ✔️ {{ feature }}
+        </li>
+      </ul>
+      <br>
+      <p class="footerconvice">{{ communities[currentIndex].footerconvice }}</p>
+      <button (click)="navigateToLogin()">{{ communities[currentIndex].joinText }}</button>
+    </div>
+  </div>
+</div>

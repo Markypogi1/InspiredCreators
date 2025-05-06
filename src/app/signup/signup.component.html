@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+<div class="signup-container">
+  <div class="signup-card">
+    <div class="logocenter">
+      <img src="assets/logo.png" alt="InspireCreators Logo" class="logo" />
+      <span class="brand-name">InspireCreators</span>
+    </div>
+
+    <h2>Sign Up</h2>
+    <p class="required-text">All fields are required</p>
+
+    <form (ngSubmit)="submitForm()" #signupForm="ngForm" class="form-grid" novalidate>
+      <input type="text" placeholder="First Name" [(ngModel)]="user.firstName" name="firstName" required />
+      <input type="text" placeholder="Last Name" [(ngModel)]="user.lastName" name="lastName" required />
+      <input type="text" placeholder="User Name" [(ngModel)]="user.username" name="username" required />
+      <div class="password-field">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Password"
+          [(ngModel)]="user.password"
+          name="password"
+          required
+        />
+        <i
+          class="fas"
+          [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+          (click)="togglePasswordVisibility()"
+        ></i>
+      </div>
+
+      <input type="text" placeholder="Phone Number" [(ngModel)]="user.phone" name="phone" required />
+
+      <input type="date" [(ngModel)]="user.birthday" name="birthday" required />
+
+      <input type="email" placeholder="Email Address" [(ngModel)]="user.email" name="email" required />
+
+     
+
+   
+      <div *ngIf="errorMessage" style="color: red; grid-column: span 2;">{{ errorMessage }}</div>
+
+      <div class="gender-group full-width">
+        <label>
+          <input type="checkbox" name="gender" [checked]="user.gender === 'Male'" (change)="selectGender('Male')" /> Male
+        </label>
+        <label>
+          <input type="checkbox" name="gender" [checked]="user.gender === 'Female'" (change)="selectGender('Female')" /> Female
+        </label>
+      </div>
+      
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <p class="login-text">
+      Have already an account? <a routerLink="/login">Log In</a>
+    </p>
+  </div>
+</div>

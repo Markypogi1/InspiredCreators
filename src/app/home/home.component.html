@@ -1,0 +1,104 @@
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
+<div class="home-container">
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="assets/logo.png" alt="InspireCreators Logo" class="logo" />
+            <span class="brand-name">InspireCreators</span>
+        </div>
+        <nav class="menu">
+            <a class="menu-item active" routerLink="/home">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a class="menu-item" routerLink="/about">
+                <i class="fas fa-info-circle"></i> About
+            </a>
+            <a class="menu-item" routerLink="/contact">
+                <i class="fas fa-envelope"></i> Contact us
+            </a>
+            <a class="menu-item" routerLink="/questions">
+                <i class="fas fa-question-circle"></i> Questions
+            </a>
+            <a class="menu-item" routerLink="/users">
+                <i class="fas fa-users"></i> Users
+            </a>
+        </nav>
+
+        <div class="categories">
+            <h4>Categories</h4>
+            <a><i class="fab fa-facebook"></i> Facebook</a>
+            <a><i class="fab fa-youtube"></i> Youtube</a>
+            <a><i class="fab fa-tiktok"></i> Tiktok</a>
+        </div>
+    </aside>
+
+    <div class="top-bar">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar" />
+        </div>
+        <button class="get-app-btn">Get App</button>
+        <div class="profile">
+            <span>Hi! {{ user?.lastName || 'User' }}</span>
+            <img [src]="userImage" alt="Profile" class="profile-pic" />
+            <i class="fas fa-ellipsis-h dots-icon" (click)="toggleDropdown()"></i>
+
+            <!-- Dropdown Menu -->
+            <div *ngIf="isDropdownVisible" class="dropdown-menu">
+              <a href="#" >Profile</a>
+              <a href="#" (click)="logout()">Logout</a>
+            </div>
+          </div>
+          
+    </div>
+
+    <main class="main-content">
+        <div class="welcome-section">
+            <h1>Welcome InspireCreators!</h1>
+            <p class="subtitle">“The Ultimate Community forum for Content Makers!”</p>
+
+            <p class="description">
+                Are you a content creator looking to connect, collaborate, and grow? Whether you're into filmmaking, blogging,
+                photography and podcasting in social media content, InspireCreators is the place for you!
+            </p>
+
+            <p class="description">
+                Join our thriving community today and turn your creativity into impact! 🌟
+            </p>
+
+            <div class="action-section">
+                <button class="ask-btn">Ask Question</button>
+                <div class="center-image">
+                    <img src="assets/Images/pogimark.png" alt="Center Person" />
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <aside class="popular-creators">
+        <h3>Popular Content Creators</h3>
+        <ul>
+            <li><img src="assets/Images/Male.png" /> Ser Geybin - 12,000,000 followers</li>
+            <li><img src="assets/Images/Male.png" /> Mottetttt - 8,000,000 followers</li>
+            <li><img src="assets/Images/Male.png" /> Sun Shimoran - 5,000,000 followers</li>
+            <li><img src="assets/Images/Male.png" /> Ma R Ky - 3,000,000 followers</li>
+            <li><img src="assets/Images/Female.png" /> Ivana - 2,000,000 followers</li>
+            <li><img src="assets/Images/Female.png" /> Zynah - 1,000,000 followers</li>
+        </ul>
+        <button class="see-more-btn">See more</button>
+    </aside>
+
+    <footer class="footer">
+        <p>InspireCreators rules | Privacy policy | User Agreement</p>
+        <p>InspireCreators Inc. © 2025, all rights reserved.</p>
+    </footer>
+</div>
+
+
+
+
+
+

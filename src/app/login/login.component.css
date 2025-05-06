@@ -1,0 +1,106 @@
+/* Background */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #faecec; /* Light pink background */
+  }
+  
+  /* Card Styling */
+  .login-card {
+    background-color: #3e3232; /* Dark brown */
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .logocenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50%;
+
+  }
+  
+  .brand-name {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+  
+  /* Title */
+  .login-card h2 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Input fields */
+  .login-card input {
+    width: 90%;
+    margin-top: 20px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Button */
+  .login-card button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #58f07f; /* Green button */
+    border: none;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .login-card button:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Sign up link */
+  .signup-text {
+    margin-top: 1rem;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  .signup-text a {
+    cursor: pointer;
+    color: #7bc4f3;
+    text-decoration: none;
+  }
+  
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+
+  .password-container {
+    position: relative;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .error-message  {
+    color: red;
+  }

@@ -1,0 +1,93 @@
+.banner {
+    width: 100%;
+    height: 100vh;
+    transition: background-color 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row; /* image on left, content on right */
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .image {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .billboard-image {
+    width: 100%;
+    padding-top: 90px;
+    border-radius: 20px;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .content {
+    max-width: 600px;
+  }
+  
+  .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  
+  .body {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  
+  button {
+    display: block;
+    margin: 1.5rem auto 0 auto; /* top auto bottom auto */
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #2B2E4A;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #1b1d30;
+  }
+  .platform-logo {
+    width: 40%;
+
+    margin-bottom: 0.3rem; /* Reduced from 1rem */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  
