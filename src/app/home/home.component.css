@@ -29,7 +29,6 @@
   margin-left: 10px;
   font-size: 18px;
 }
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -41,16 +40,24 @@
   padding: 10px 0;
   text-decoration: none;
   color: #333;
+  transition: background-color 0.3s ease;
 }
 
 .menu-item.active {
-  background-color: #ddd;
+  background-color: #333;
+  color: #fff;
   border-radius: 8px;
 }
 
 .menu-item i {
-  margin-right: 10px;
+  margin-right: 5px;
 }
+
+.section {
+  height: 100vh; /* Make sections tall enough to scroll */
+  
+}
+
 
 .categories {
   margin-top: 30px;
@@ -117,6 +124,7 @@
   border: 1px solid #333;
   border-radius: 20px;
   padding: 5px 15px;
+  cursor: pointer;
 }
 .profile {
   display: flex;
@@ -245,6 +253,7 @@
   border: 1px solid #333;
   border-radius: 20px;
   background-color: white;
+  cursor: pointer;
 }
 
 .footer {
@@ -458,4 +467,49 @@
   margin-left: auto;
   font-size: 13px;
   color: #aaa;
+}
+/* Users*/
+
+.Userscontainer {
+  max-width: 1200px;
+  padding-top: 7%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: flex;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.followers {
+  font-size: 14px;
+  color: #444;
 }

@@ -1,0 +1,141 @@
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
+<div class="home-container" id="usseersss">
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="assets/logo.png" alt="InspireCreators Logo" class="logo" />
+            <span class="brand-name">InspireCreators</span>
+        </div>
+        <nav class="menu">
+          <a class="menu-item" [routerLink]="['/home']" fragment="welcomehome">
+
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a class="menu-item" [routerLink]="['/home']" fragment="aboutus">
+                <i class="fas fa-info-circle"></i> About
+            </a>
+            <a class="menu-item" [routerLink]="['/home']" fragment="contactus">
+                <i class="fas fa-envelope"></i> Contact us
+            </a>
+            <a class="menu-item" [routerLink]="['/home']" fragment="FAQ">
+                <i class="fas fa-question-circle"></i> Questions
+            </a>
+            <a class="menu-item active" routerLink="/users">
+                <i class="fas fa-users"></i> Users
+            </a>
+        </nav>
+
+        <div class="categories">
+            <h4>Categories</h4>
+            <a><i class="fab fa-facebook"></i> Facebook</a>
+            <a><i class="fab fa-youtube"></i> Youtube</a>
+            <a><i class="fab fa-tiktok"></i> Tiktok</a>
+        </div>
+    </aside>
+
+    <div class="top-bar">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar" />
+        </div>
+        <button class="get-app-btn">Get App</button>
+        <div class="profile">
+            <span>Hi! {{ user?.lastName || 'User' }}</span>
+            <img [src]="userImage" alt="Profile" class="profile-pic" />
+            <i class="fas fa-ellipsis-h dots-icon" (click)="toggleDropdown()"></i>
+
+            <!-- Dropdown Menu -->
+            <div *ngIf="isDropdownVisible" class="dropdown-menu">
+              <a href="#" >Profile</a>
+              <a href="#" (click)="logout()">Logout</a>
+            </div>
+          </div>
+          
+    </div>
+<div class="Userscontainer " >
+    <h2>Users</h2>
+    <div class="grid">
+      <!-- Repeat this block 4 times for each column -->
+      <div class="column">
+        <div class="user-card">
+          <img src="assets/Images/sergeybin.jpg" alt="Ser Geybin">
+          <div>
+            <div class="name">Ser Geybin</div>
+            <div class="followers">12,000,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/Motteet.jpg" alt="Mottetttt">
+          <div>
+            <div class="name">Mottetttt</div>
+            <div class="followers">8,000,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/shimoran.jpg" alt="Sun Shimoran">
+          <div>
+            <div class="name">Sun Shimoran</div>
+            <div class="followers">5,000,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/pogimark.png" alt="Ma R Ky">
+          <div>
+            <div class="name">Ma R Ky</div>
+            <div class="followers">3,000,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/Ivanaa.jpg" alt="Ivana">
+          <div>
+            <div class="name">Ivana</div>
+            <div class="followers">2,000,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/zz.jpg" alt="Zynah">
+          <div>
+            <div class="name">Zynah</div>
+            <div class="followers">1,000,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/mitsel.jpg" alt="Mitsel">
+          <div>
+            <div class="name">Mitsel</div>
+            <div class="followers">1,000,000 followers</div>
+          </div>
+        </div>
+      </div>
+       <div class="column">
+        <div class="user-card">
+          <img src="assets/Images/karlos.jpg" alt="arl">
+          <div>
+            <div class="name">karlos Yulok</div>
+            <div class="followers">500,000 followers</div>
+          </div>
+        </div>
+        <div class="user-card">
+          <img src="assets/Images/karlos.jpg" alt="Ser Geybin">
+          <div>
+            <div class="name">Angelie</div>
+            <div class="followers">400,000 followers</div>
+          </div>
+        </div>
+        
+       
+        
+      
+      <!-- Repeat the above column block 3 more times -->
+    </div>
+  </div>
+
+   
+    <footer class="footer">
+        <p>InspireCreators rules | Privacy policy | User Agreement</p>
+        <p>InspireCreators Inc. © 2025, all rights reserved.</p>
+    </footer>
+</div>

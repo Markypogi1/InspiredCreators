@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
 import { RouterModule ,  Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
 

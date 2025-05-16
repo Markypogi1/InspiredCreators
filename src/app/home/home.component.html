@@ -11,16 +11,17 @@
             <span class="brand-name">InspireCreators</span>
         </div>
         <nav class="menu">
-            <a class="menu-item active" routerLink="/home">
+          <a class="menu-item active" [routerLink]="['/home']" fragment="welcomehome">
+
                 <i class="fas fa-home"></i> Home
             </a>
-            <a class="menu-item" routerLink="/about">
+            <a class="menu-item" [routerLink]="['/home']" fragment="aboutus">
                 <i class="fas fa-info-circle"></i> About
             </a>
-            <a class="menu-item" routerLink="/contact">
+            <a class="menu-item" [routerLink]="['/home']" fragment="contactus">
                 <i class="fas fa-envelope"></i> Contact us
             </a>
-            <a class="menu-item" routerLink="/questions">
+            <a class="menu-item" [routerLink]="['/home']" fragment="FAQ">
                 <i class="fas fa-question-circle"></i> Questions
             </a>
             <a class="menu-item" routerLink="/users">
@@ -40,7 +41,7 @@
         <div class="search-container">
             <input type="text" placeholder="Search" class="search-bar" />
         </div>
-        <button class="get-app-btn">Get App</button>
+      <button class="get-app-btn" (click)="promptInstallApp()">Get App</button>
         <div class="profile">
             <span>Hi! {{ user?.lastName || 'User' }}</span>
             <img [src]="userImage" alt="Profile" class="profile-pic" />
@@ -55,7 +56,7 @@
           
     </div>
 
-    <main class="main-content">
+    <main class="main-content section" id="welcomehome">
         <div class="welcome-section">
             <h1>Welcome InspireCreators!</h1>
             <p class="subtitle">“The Ultimate Community forum for Content Makers!”</p>
@@ -76,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="welcome-section">
+        <div class="welcome-section section" id="aboutus" >
             <img src="assets/logo.png" alt="logo" width="300px" height="300px"/>
             <h1>InspireCreators</h1>
             <p class="subtitle">Community Forum </p>
@@ -103,7 +104,7 @@
 
             <br>
         <br>
-        <div class="contact-container">
+        <div class="contact-container section" id="contactus">
             <div class="contact-info">
               <img src="assets/logo.png" alt="Logo" class="logo" />
               <p>Feel free to reach out to us for further details and inquiries. We're here to help.</p>
@@ -136,7 +137,7 @@
               </form>
             </div>
           </div>
-          <div class="FAQ-container">
+          <div class="FAQ-container section" id="FAQ">
             <div class="header">
               <h2>Latest Questions</h2>
               <button class="ask-btn">Ask Questions</button>
@@ -149,9 +150,9 @@
               <button class="filter-btn">Unanswered</button>
             </div>
         
-            <div class="question-card">
+            <div class="question-card" >
               <div class="user">
-                <img src="assets/Images/Male.png" alt="avatar" class="avatar">
+                <img src="assets/Images/karlos.jpg" alt="avatar" class="avatar">
                 <span class="username">Karlos</span>
                 <span class="time">• 1hr. ago</span>
               </div>
@@ -168,7 +169,7 @@
         
             <div class="question-card">
               <div class="user">
-                <img src="assets/Images/Female.png" alt="avatar" class="avatar">
+                <img src="assets/Images/mitsel.jpg" alt="avatar" class="avatar">
                 <span class="username">Mechille</span>
                 <span class="time">• 1hr. ago</span>
               </div>
@@ -185,7 +186,7 @@
 
             <div class="question-card">
                 <div class="user">
-                  <img src="assets/Images/Female.png" alt="avatar" class="avatar">
+                  <img src="assets/Images/angelie.jpg" alt="avatar" class="avatar">
                   <span class="username">Angelie</span>
                   <span class="time">• 50 mins. ago</span>
                 </div>
@@ -200,20 +201,21 @@
                 </div>
               </div>
           </div>
+
         </div>
     </main>
 
     <aside class="popular-creators">
         <h3>Popular Content Creators</h3>
         <ul>
-            <li><img src="assets/Images/Male.png" alt="profile"/> Ser Geybin - 12,000,000 followers</li>
-            <li><img src="assets/Images/Male.png" alt="profile" /> Mottetttt - 8,000,000 followers</li>
-            <li><img src="assets/Images/Male.png" alt="profile"/> Sun Shimoran - 5,000,000 followers</li>
-            <li><img src="assets/Images/Male.png" alt="profile"/> Ma R Ky - 3,000,000 followers</li>
-            <li><img src="assets/Images/Female.png" alt="profile" /> Ivana - 2,000,000 followers</li>
-            <li><img src="assets/Images/Female.png" alt="profile" /> Zynah - 1,000,000 followers</li>
+            <li><img src="assets/Images/sergeybin.jpg" alt="profile"/> Ser Geybin - 12,000,000 followers</li>
+            <li><img src="assets/Images/Motteet.jpg" alt="profile" /> Mottetttt - 8,000,000 followers</li>
+            <li><img src="assets/Images/shimoran.jpg" alt="profile"/> Sun Shimoran - 5,000,000 followers</li>
+            <li><img src="assets/Images/pogimark.png" alt="profile"/> Ma R Ky - 3,000,000 followers</li>
+            <li><img src="assets/Images/Ivanaa.jpg" alt="profile" /> Ivana - 2,000,000 followers</li>
+            <li><img src="assets/Images/zz.jpg" alt="profile" /> Zynah - 1,000,000 followers</li>
         </ul>
-        <button class="see-more-btn">See more</button>
+        <button class="see-more-btn" (click)="gotousers()">See more</button>
     </aside>
 
     <footer class="footer">

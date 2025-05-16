@@ -4,17 +4,15 @@ import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule, ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [FormsModule, CommonModule,RouterModule],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-users',
+  imports: [CommonModule,RouterModule],
+  templateUrl: './users.component.html',
+  styleUrls: ['../home/home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  user: any = null;
+export class UsersComponent {
+user: any = null;
   userImage: string = 'assets/Images/Male.png';
   isDropdownVisible: boolean = false;
-  deferredPrompt: any = null;
 
   constructor(
     private router: Router,
@@ -31,12 +29,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
-    window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent the mini-infobar from appearing
-        e.preventDefault();
-        this.deferredPrompt = e;
-        console.log('PWA install prompt saved');
-      });
+
     // Handle fragment scroll on route change (when coming from a link click)
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
@@ -106,23 +99,4 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('loggedInUser');
     this.router.navigate(['/login']);
   }
-  gotousers() {
-  
-    this.router.navigate(['/users']);
-  }
-  promptInstallApp() {
-  if (this.deferredPrompt) {
-    this.deferredPrompt.prompt(); // Show the install prompt
-    this.deferredPrompt.userChoice.then((choiceResult: any) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      this.deferredPrompt = null;
-    });
-  } else {
-    alert('Install prompt not available. Make sure this app is a PWA and run in a supported browser.');
-  }
-}
 }
