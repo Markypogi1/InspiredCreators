@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   userImage: string = 'assets/Images/Male.png';
   isDropdownVisible: boolean = false;
   deferredPrompt: any = null;
+  showInstallButton = false;
+
 
   constructor(
     private router: Router,
@@ -31,12 +33,14 @@ export class HomeComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
-    window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent the mini-infobar from appearing
-        e.preventDefault();
-        this.deferredPrompt = e;
-        console.log('PWA install prompt saved');
-      });
+   window.addEventListener('beforeinstallprompt', (e: any) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  this.deferredPrompt = e;
+  console.log('✅ beforeinstallprompt event saved.');
+});
+
     // Handle fragment scroll on route change (when coming from a link click)
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
