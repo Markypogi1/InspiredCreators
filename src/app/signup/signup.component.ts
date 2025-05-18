@@ -19,7 +19,8 @@ export class SignupComponent {
     birthday: '',
     email: '',
     password: '',
-    gender: ''
+    gender: '',
+    followers: 0
   };
 
   errorMessage = '';

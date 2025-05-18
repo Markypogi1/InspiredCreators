@@ -29,28 +29,30 @@
             </a>
         </nav>
 
-        <div class="categories">
-            <h4>Categories</h4>
-            <a><i class="fab fa-facebook"></i> Facebook</a>
-            <a><i class="fab fa-youtube"></i> Youtube</a>
-            <a><i class="fab fa-tiktok"></i> Tiktok</a>
-        </div>
+        
     </aside>
 
     <div class="top-bar">
         <div class="search-container">
-            <input type="text" placeholder="Search" class="search-bar" />
-        </div>
-      <button class="get-app-btn" (click)="promptInstallApp()">Get App</button>
+  <input
+    type="text"
+    placeholder="Search"
+    class="search-bar"
+    [(ngModel)]="searchText"
+    (input)="onSearchChange()"
+  />
+</div>
+
+      <button class="get-app-btn" >Get App</button>
         <div class="profile">
             <span>Hi! {{ user?.lastName || 'User' }}</span>
-            <img [src]="userImage" alt="Profile" class="profile-pic" />
+            <img [src]="userImage" alt="Profile" class="profile-pic"  style="cursor:pointer;"/>
             <i class="fas fa-ellipsis-h dots-icon" (click)="toggleDropdown()"></i>
 
             <!-- Dropdown Menu -->
             <div *ngIf="isDropdownVisible" class="dropdown-menu">
-              <a href="#" >Profile</a>
-              <a href="#" (click)="logout()">Logout</a>
+              <a [routerLink]="['/profilesettings']" >Profile</a>
+              <a (click)="logout()">Logout</a>
             </div>
           </div>
           
@@ -71,11 +73,20 @@
             </p>
 
             <div class="action-section">
-                <button class="ask-btn">Ask Question</button>
+                <button class="ask-btn" (click)="toggleAskForm()">Ask Question</button>
                 <div class="center-image">
                     <img src="assets/Images/pogimark.png" alt="Center Person" />
                 </div>
             </div>
+            <!-- Ask Question Form -->
+              <div class="ask-form" *ngIf="showAskForm">
+                <button class="close-btn" (click)="toggleAskForm()">✕</button>
+                <h3>Ask Question</h3>
+                <input type="text" placeholder="Enter your question" [(ngModel)]="questionTitle" />
+                <textarea placeholder="Enter description..." [(ngModel)]="questionDescription"></textarea>
+                <button class="submit-btn" (click)="submitQuestion()">Create Question</button>
+              </div>
+              <!-- End heres-->
         </div>
         <div class="welcome-section section" id="aboutus" >
             <img src="assets/logo.png" alt="logo" width="300px" height="300px"/>
@@ -111,115 +122,166 @@
               <p><i class="fas fa-phone-alt"></i> 09632122892</p>
               <p><i class="fas fa-envelope"></i> InspireCreators&#64;gmail.com</p>
               <div class="social-icons">
-                <a href=""><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://web.facebook.com/Calbang05" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank" ><i class="fab fa-telegram"></i></a>
+                <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
+               
               </div>
             </div>
         
             <div class="contact-form">
-              <h2>Send Us a Quick Message</h2>
-              <form>
-                <label>Complete Name:</label>
-                <input type="text" placeholder="Enter your name" />
-        
-                <label>Contact No:</label>
-                <input type="text" placeholder="Enter your contact number" />
-        
-                <label>Email:</label>
-                <input type="email" placeholder="Enter your email" />
-        
-                <label>Message:</label>
-                <textarea placeholder="Write your message"></textarea>
-        
-                <button type="submit">Submit</button>
-              </form>
+              <h2>&nbsp;&nbsp;&nbsp;Send Us a Quick &nbsp;&nbsp;&nbsp;&nbsp;Message</h2>
+              <form #contactForm="ngForm" (ngSubmit)="submitContact(contactForm)" class="contact-form">
+                  
+
+                  <label>Complete Name:</label>
+                  <input type="text" name="name" [(ngModel)]="contact.name" placeholder="Enter your name" required [disabled]="true" />
+
+                  <label>Contact No:</label>
+                  <input type="text" name="phone" [(ngModel)]="contact.phone" placeholder="Enter your contact number" required [disabled]="true" />
+
+                  <label>Email:</label>
+                  <input type="email" name="email" [(ngModel)]="contact.email" placeholder="Enter your email" required [disabled]="true" />
+
+                  <label>Message:</label>
+                  <textarea name="message" [(ngModel)]="contact.message" placeholder="Write your message" required></textarea>
+
+                  <button type="submit">Submit</button>
+                </form>
+
+
             </div>
           </div>
-          <div class="FAQ-container section" id="FAQ">
-            <div class="header">
-              <h2>Latest Questions</h2>
-              <button class="ask-btn">Ask Questions</button>
-            </div>
-            <p class="question-count">1,234,000 questions</p>
-        
-            <div class="filters">
-              <button class="filter-btn active">Latest</button>
-              <button class="filter-btn">Oldest</button>
-              <button class="filter-btn">Unanswered</button>
-            </div>
-        
-            <div class="question-card" >
-              <div class="user">
-                <img src="assets/Images/karlos.jpg" alt="avatar" class="avatar">
-                <span class="username">Karlos</span>
-                <span class="time">• 1hr. ago</span>
-              </div>
-              <a href="#" class="question-title">Lorem Ipsum?</a>
-              <p class="question-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="actions">
-                <div class="action"><img src="assets/Images/Likeicon.png" alt="likes"><span>&nbsp;2.2k&nbsp;</span> </div>
-                <div class="action"><img src="assets/Images/comments.png" alt="comments"><span>&nbsp;3k&nbsp;</span> </div>
-                <span class="views">54 views</span>
-              </div>
-            </div>
-        
-            <div class="question-card">
-              <div class="user">
-                <img src="assets/Images/mitsel.jpg" alt="avatar" class="avatar">
-                <span class="username">Mechille</span>
-                <span class="time">• 1hr. ago</span>
-              </div>
-              <a href="#" class="question-title">Lorem Ipsum?</a>
-              <p class="question-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="actions">
-                <div class="action"><img src="assets/Images/Likeicon.png" alt="likes"><span>&nbsp;3k&nbsp;</span> </div>
-                <div class="action"><img src="assets/Images/comments.png" alt="comments"><span>&nbsp;2k&nbsp;</span> </div>
-                <span class="views">44 views</span>
-              </div>
-            </div>
+          <br>
+          <br>
+         <div class="FAQ-container section" id="FAQ">
+  <div class="header">
+    <h2>Questions</h2>
+    <button class="ask-btn" (click)="toggleAskForm()">Ask Questions</button>
+  </div>
 
-            <div class="question-card">
-                <div class="user">
-                  <img src="assets/Images/angelie.jpg" alt="avatar" class="avatar">
-                  <span class="username">Angelie</span>
-                  <span class="time">• 50 mins. ago</span>
-                </div>
-                <a href="#" class="question-title">Lorem Ipsum?</a>
-                <p class="question-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <div class="actions">
-                  <div class="action"><img src="assets/Images/Likeicon.png" alt="likes"><span>&nbsp;2k&nbsp;</span> </div>
-                  <div class="action"><img src="assets/Images/comments.png" alt="comments"><span>&nbsp;1k&nbsp;</span> </div>
-                  <span class="views">24 views</span>
-                </div>
-              </div>
-          </div>
+  <p class="question-count">{{ questions.length }} questions</p>
 
+  
+
+
+  <!-- Loop through approved questions -->
+  <div *ngFor="let q of questions" class="question-card">
+    <div class="user">
+      <img [src]="q.profile" alt="avatar" class="avatar">
+      <span class="username">{{ q.lastname }}</span>
+      <span class="time">{{ getTimeAgo(q.dateAndTimeCreated) }}</span>
+    </div>
+    <p class="question-title">{{ q.question }}</p>
+    <p class="question-body">
+      {{ q.description }}
+    </p>
+    <div class="actions">
+      <div class="action">
+  <img 
+  [src]="isLiked(q) ? 'assets/Images/bluelikes.png' : 'assets/Images/Likeicon.png'" 
+  alt="likes"
+  (click)="toggleLike(q)"
+  style="cursor: pointer;"
+>
+<span>&nbsp;{{ q.likes }} likes&nbsp;</span>
+
+</div>
+      <div class="action" (click)="toggleComments(q.id)">
+  <img src="assets/Images/comments.png" alt="comments" style="cursor: pointer;">
+  <span>&nbsp;{{ getCommentsCount(q.id) }} comments&nbsp;</span>
+    </div>
+
+      <span class="views">{{ views[q.dateAndTimeCreated] || 0 }} views</span>
+    </div>
+    <div *ngIf="expandedQuestionId === q.id" class="comment-section">
+  <div *ngFor="let comment of getComments(q.id)" class="comment-card">
+    <img [src]="getUserImage(comment.commentBy)" class="comment-img" />
+    <div class="comment-content">
+      <div class="comment-user">
+        <strong>{{ getLastName(comment.commentBy) }}</strong> 
+        <span class="comment-time">• {{ getTimeAgo(comment.timestamp) }}</span>
+      </div>
+      <div class="comment-text">{{ comment.text }}</div>
+     
+     <!-- Mini Likes and Replies -->
+   <!-- Mini Likes and Replies -->
+<div class="mini-actions">
+  <span (click)="toggleMiniLike(comment.commentid, q.id)" class="like-button">
+    <img
+      [src]="
+        hasMiniLiked(comment.commentid, q.id)
+          ? 'assets/Images/bluelikes.png'
+          : 'assets/Images/Likeicon.png'
+      "
+      class="mini-like-icon"
+      alt="like icon"
+    />
+    {{ countMiniLikes(comment.commentid, q.id) }} Likes
+  </span>
+
+  <span (click)="toggleReplyBox(comment.commentid, q.id)" class="reply-button">
+    {{ countMiniReplies(comment.commentid, q.id) }} Reply
+  </span>
+</div>
+
+<!-- Mini Replies -->
+<div *ngIf="showReplyBoxId === comment.commentid" class="mini-replies">
+  <div *ngFor="let reply of getMiniReplies(comment.commentid, q.id)" class="mini-reply">
+    <img [src]="getUserImage(reply.commentBy)" class="mini-reply-img" alt="user image" />
+    <div class="mini-reply-content">
+      <div>
+        <strong>{{ getLastName(reply.commentBy) }}</strong> • {{ getTimeAgo(reply.timestamp) }}
+      </div>
+      <div class="mini-reply-text">{{ reply.text }}</div>
+    </div>
+  </div>
+
+  <!-- Add Mini Reply -->
+  <div class="add-mini-reply">
+    <input
+      type="text"
+      [(ngModel)]="newMiniReply[q.id + '-' + comment.commentid]"
+      placeholder="Write a reply..."
+    />
+    <button (click)="submitMiniReply(comment.commentid, q.id)">Reply</button>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  <!-- Add New Comment -->
+  <div class="add-comment">
+    <input
+      type="text"
+      [(ngModel)]="newComment[q.id]"
+      placeholder="Tell something..."
+    />
+    <button class="Commentbtn" (click)="submitComment(q.id)">Submit</button>
+  </div>
+</div>
+
+  </div>
+</div>
         </div>
     </main>
 
-    <aside class="popular-creators">
-        <h3>Popular Content Creators</h3>
-        <ul>
-            <li><img src="assets/Images/sergeybin.jpg" alt="profile"/> Ser Geybin - 12,000,000 followers</li>
-            <li><img src="assets/Images/Motteet.jpg" alt="profile" /> Mottetttt - 8,000,000 followers</li>
-            <li><img src="assets/Images/shimoran.jpg" alt="profile"/> Sun Shimoran - 5,000,000 followers</li>
-            <li><img src="assets/Images/pogimark.png" alt="profile"/> Ma R Ky - 3,000,000 followers</li>
-            <li><img src="assets/Images/Ivanaa.jpg" alt="profile" /> Ivana - 2,000,000 followers</li>
-            <li><img src="assets/Images/zz.jpg" alt="profile" /> Zynah - 1,000,000 followers</li>
-        </ul>
-        <button class="see-more-btn" (click)="gotousers()">See more</button>
-    </aside>
+   <aside class="popular-creators">
+  <h3>Popular Content Creators</h3>
+  <ul>
+    <li *ngFor="let user of popularUsers"  >
+      <img [src]="user.profileImage ? user.profileImage : (user.gender === 'Female' ? 'assets/Images/Female.png' : 'assets/Images/Male.png')" alt="profile" />
+      {{ user.firstName }} {{ user.lastName }} - {{ user.followers }} followers
+    </li>
+  </ul>
+  <button class="see-more-btn" (click)="gotousers()">See more</button>
+</aside>
+
+
 
     <footer class="footer">
-        <p>InspireCreators rules | Privacy policy | User Agreement</p>
+       
         <p>InspireCreators Inc. © 2025, all rights reserved.</p>
     </footer>
 </div>

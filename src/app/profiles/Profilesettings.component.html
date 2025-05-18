@@ -24,7 +24,7 @@
             <a class="menu-item" [routerLink]="['/home']" fragment="FAQ">
                 <i class="fas fa-question-circle"></i> Questions
             </a>
-            <a class="menu-item active" routerLink="/users">
+            <a class="menu-item" routerLink="/users">
                 <i class="fas fa-users"></i> Users
             </a>
         </nav>
@@ -33,15 +33,9 @@
     </aside>
 
     <div class="top-bar">
-      <div class="search-container">
-  <input
-    type="text"
-    placeholder="Search users by name or 'follow'"
-    class="search-bar"
-    [(ngModel)]="searchTerm"
-    (input)="onSearchChange()"
-  />
-</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar" />
+        </div>
         <button class="get-app-btn">Get App</button>
         <div class="profile">
             <span>Hi! {{ user?.lastName || 'User' }}</span>
@@ -56,32 +50,43 @@
           </div>
           
     </div>
-<div class="Userscontainer">
-  <h2>Users</h2>
-  <div class="grid">
-    <div class="column" *ngFor="let u of users"  style="cursor:pointer;">
-      <div class="user-card">
-        <img [src]="u.profileImage ? u.profileImage : (u.gender === 'Female' ? 'assets/Images/Female.png' : 'assets/Images/Male.png')" 
-  alt="{{ u.firstName }} {{ u.lastName }}"  />
-        <div>
-          <div class="name">{{ u.firstName }} {{ u.lastName }}</div>
-          <div class="followers">Followers: {{ u.followers || 0 }}</div>
-          <button class="follow-btn"
-  *ngIf="u.username !== user.username"
-  (click)="toggleFollow(u, $event)">
-  {{ isUserFollowed(u.email) ? 'Unfollow' : 'Follow' }}
-</button>
+<div class="profilesettingscontainer">
+  <h2>PROFILE SETTINGS</h2>
 
-        </div>
-      </div>
-    </div>
+  <div class="profilavatar">
+    <img [src]="userImage" alt="Avatar">
   </div>
-</div>
 
+  <form class="formprofile" (ngSubmit)="updateProfile()" #profileForm="ngForm">
+    <div class="input-rowprofilesettings">
+      <input type="text" placeholder="Enter First Name" [(ngModel)]="user.firstName" name="firstName" >
+      <input type="text" placeholder="Enter Last Name" [(ngModel)]="user.lastName" name="lastName" >
+    </div>
+    <div class="input-rowprofilesettings">
+      <input type="text" placeholder="Enter Username" [(ngModel)]="user.username" name="username" >
+      <input type="date" placeholder="yourdate" [(ngModel)]="user.birthday" name="bday" >
+    </div>
+    <div class="input-rowprofilesettings">
+      <input type="email" placeholder="Enter Email" [(ngModel)]="user.email" name="email" readonly>
+      <input type="text" placeholder="Enter Contact Number" [(ngModel)]="user.phone" name="phone" >
+    </div>
+    <div class="input-rowprofilesettings">
+      <input type="password" placeholder="Enter Password" [(ngModel)]="user.password" name="password" >
+     <input
+    type="file"
+    id="fileUpload"
+    (change)="handleFileInput($event)"
+    accept="image/*"
+   
+  />
+    </div>
+    <button class="updatebtn" type="submit">UPDATE</button>
+  </form>
+</div>
 
    
     <footer class="middlefooter">
-       
+    
         <p>InspireCreators Inc. © 2025, all rights reserved.</p>
     </footer>
 </div>
