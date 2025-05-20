@@ -59,26 +59,6 @@
 }
 
 
-.categories {
-  margin-top: 30px;
-}
-
-.categories h4 {
-  margin-bottom: 10px;
-}
-
-.categories a {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  color: #333;
-  text-decoration: none;
-}
-
-.categories a i {
-  margin-right: 8px;
-}
-
 .main-content {
   margin-left: 250px;
   margin-right: 300px; 
@@ -102,6 +82,7 @@
   justify-content: flex-end;
   padding: 0 20px;
   gap: 10px;
+  z-index: 2;
   
 }
 
@@ -188,6 +169,10 @@
 
 .description {
   margin: 10px 0;
+}
+.aboutuslogo{
+  width:300px ;
+  height:300px;
 }
 
 .action-section {
@@ -908,4 +893,669 @@ input[type="file"] {
 
 .follow-btn:hover {
   background-color: #005fa3;
+}
+
+/* adming question management*/
+.questions-container {
+    position: relative; /* Changed from absolute to relative */
+  padding-top: 8%;
+   left: 35%;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  border-radius: 0 0 10px 10px;
+  z-index: 1;
+
+   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between grid items */
+
+  box-sizing: border-box;
+}
+.question-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+.questions-container h2 {
+  padding-top: 8%;
+  font-size: 28px;
+  font-weight: bold;
+  padding-left: 80%;
+  color: #333;
+  text-align: center;
+}
+.question-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.question-info h4 {
+  margin: 0;
+}
+
+.question-body {
+  margin-top: 10px;
+}
+
+.question-actions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.question-actions label {
+  margin-right: 10px;
+}
+
+.question-actions select {
+  margin-right: 20px;
+}
+.deleteq-btn {
+  background-color: #b22323;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/*Contact css starts here*/
+.contact-messages {
+  position: relative; /* Changed from absolute to relative */
+  padding-top: 8%;
+  left: 35%;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  border-radius: 0 0 10px 10px;
+  z-index: -1;
+
+   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between grid items */
+
+  box-sizing: border-box;
+ 
+}
+
+.contact-messages h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.contact-card {
+  display: flex;
+  gap: 15px;
+ 
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: calc(50% - 20px); /* Two cards per row with gap */
+  box-sizing: border-box;
+}
+
+.contact-profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.contact-details p {
+  margin: 4px 0;
+}
+/*Contact css ends here*/
+
+/*admin show users*/
+.users-container2 {
+  position: relative; /* Changed from absolute to relative */
+  padding-top: 8%;
+  left: 35%;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  border-radius: 0 0 10px 10px;
+  z-index: -1;
+
+   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between grid items */
+
+  box-sizing: border-box;
+}
+
+.user-card-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.user-card2 {
+ display: flex;
+  gap: 15px;
+ 
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: calc(50% - 20px); /* Two cards per row with gap */
+  box-sizing: border-box;
+}
+
+.user-card2 img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  
+  .home-container {
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  /* Sidebar becomes bottom navbar */
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    width: 100%;
+    height: 60px;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  /* Hide logo section (brand name will show in top bar instead) */
+  .logo-section {
+    display: none;
+  }
+
+  /* Brand name in top bar */
+  .brand-name {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+
+  .menu {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .menu-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 0; /* hide text labels */
+  }
+
+  .menu-item i {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  /* Top bar layout */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #f7f7f7;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+
+  .search-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 200px; /* Small size for phone */
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .get-app-btn {
+    display: none;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .profile span {
+    font-size: 12px;
+  }
+
+  .profile-pic {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dots-icon {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+
+  .main-content {
+    margin: 70px 10px 80px 10px; /* Adjusted for fixed top and bottom navs */
+    padding: 20px 0;
+  }
+
+  .dropdown-menu {
+    top: 60px;
+  }
+
+  /* Prevent horizontal scroll */
+  body, html {
+    overflow-x: hidden;
+  }
+
+
+  .main-content {
+    margin: 70px 10px 80px 10px; /* space for top and bottom nav */
+    padding: 20px 0;
+  }
+  .center-image img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 90%;
+  }
+
+  .action-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .aboutuslogo {
+    width: 150px;  /* smaller logo */
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .welcome-section {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .welcome-section h1 {
+    font-size: 22px;  /* smaller headline */
+  }
+
+  .subtitle {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .description {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+.popular-creators {
+    display: none;
+  }
+
+  /*ask form*/
+  .ask-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+  background: rgb(220, 220, 220);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.ask-form input,
+.ask-form textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #19d26c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.contact-container {
+    flex-direction: column;  /* stack vertically */
+    padding: 10px;
+  }
+
+  .contact-info {
+    padding-right: 0;
+    margin-bottom: 20px; /* spacing between info and form */
+  }
+
+  .contact-form {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  /* Optional: adjust font sizes or spacing inside contact-info for smaller screen */
+  .contact-info p {
+    font-size: 18px;
+  }
+
+  .contact-info img {
+    width: 80px;
+    height: 80px;
+    padding-top: 10%;
+  }
+
+  .social-icons a {
+    font-size: 25px;
+  }
+
+  /* Adjust inputs padding if needed */
+  .contact-form input,
+  .contact-form textarea {
+    padding-left: 15px;
+  }
+ .FAQ-container {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ask-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .question-title {
+    font-size: 16px;
+  }
+
+  .question-body {
+    font-size: 14px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .views {
+    margin-left: 0;
+    font-size: 12px;
+    color: #888;
+  }
+
+  /* USERS SECTION */
+  .Userscontainer {
+    padding: 20px 10px;
+  }
+
+ .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 10px;
+ }
+
+  .user-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+  }
+
+  .user-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .followers {
+    font-size: 13px;
+  }
+  .mini-actions {
+    gap: 10px;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  .mini-replies {
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .mini-reply {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mini-reply-img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 6px;
+  }
+
+  .mini-reply-content {
+    max-width: 100%;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .add-mini-reply {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-mini-reply input {
+    width: 80%;
+    margin-right: 0;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  .add-mini-reply button {
+    width: 50%;
+    padding: 8px;
+    font-size: 14px;
+  }
+  .profilesettingscontainer {
+    padding-top: 20%;
+    width: 90%;
+    height: auto;
+    margin: 40px auto;
+    padding: 15px;
+    left: 0;
+  }
+
+  .input-rowprofilesettings {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-rowprofilesettings input[type="text"],
+  .input-rowprofilesettings input[type="email"],
+  .input-rowprofilesettings input[type="password"],
+  .input-rowprofilesettings input[type="file"],
+  .input-rowprofilesettings input[type="date"],
+  .password-container {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .updatebtn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  .questions-container {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    padding: 20px 10px;
+    left: 0; /* Remove left offset for better centering on small screens */
+  }
+
+  .questions-container h2 {
+     padding-top: 20%;
+    padding-left: 0%;
+    font-size: 20px;
+  }
+
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .question-card {
+    padding: 10px;
+  }
+
+  .question-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .question-actions label,
+  .question-actions select,
+  .deleteq-btn {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .deleteq-btn {
+    padding: 10px;
+    text-align: center;
+  }
+  .contact-messages {
+    grid-template-columns: 1fr; /* Stack into 1 column */
+    padding: 20px 10px;
+    left: 0; /* Remove horizontal offset */
+  }
+  .contact-messages h2 {
+     padding-top: 20%;
+   font-size: 25px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+  .contact-card {
+    width: 100%; /* Full width on mobile */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-profile {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-details p {
+    font-size: 14px;
+  }
+
+  .users-container2 {
+    grid-template-columns: 1fr; /* Stack into 1 column */
+    padding: 20px 10px;
+    left: 0; /* Remove horizontal offset for small screens */
+  }
+   .users-container2  h2{
+   padding-top: 20%;
+   font-size: 25px;
+  margin-bottom: 20px;
+  text-align: center;
+  }
+
+  .user-card2 {
+    width: 100%; /* Full width for single-column layout */
+    flex-direction: column; /* Stack image and content vertically if needed */
+    align-items: center; /* Center items */
+    text-align: center;
+  }
+
+  .user-card2 img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
 }

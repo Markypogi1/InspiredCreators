@@ -137,7 +137,55 @@
   color: #7bc4f3;
   text-decoration: none;
 }
+.errorMessages{
+color: red; 
+grid-column: span 2;
+}
 
 .login-text a:hover {
   text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .signup-container {
+    padding: 1rem;
+  }
+
+  .signup-card {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    width: 40%; /* Larger for smaller screens */
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* Stack inputs vertically */
+    gap: 1rem;
+  }
+
+  .full-width {
+    grid-column: span 1; /* No need to span 2 columns on mobile */
+  }
+
+  .password-field input {
+    width: 91%;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .gender-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .login-text {
+    text-align: center;
+  }
+  .errorMessages{
+color: red; 
+grid-column: span 1;
+}
 }

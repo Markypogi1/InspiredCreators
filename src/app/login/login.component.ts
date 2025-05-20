@@ -29,7 +29,22 @@ export class LoginComponent {
       this.errorMessage = 'All fields are required.';
       return;
     }
-  
+ // Check for admin credentials
+if (this.username === 'admin' && this.password === 'admin123') {
+  const adminUser = {
+    username: 'admin',
+    password: 'admin123',
+    firstName: 'Marky',
+    lastName: 'Calbang',
+    role: 'admin',
+    isLoggedIn: true,
+    image: 'assets/Images/Male.png' // Path to the admin's profile image
+  };
+  localStorage.setItem('loggedInUser', JSON.stringify(adminUser));
+  this.router.navigate(['/admin']);
+  return;
+}
+
     // Retrieve users from localStorage
     const existingUsers = JSON.parse(localStorage.getItem('signupUsers') || '[]');
   

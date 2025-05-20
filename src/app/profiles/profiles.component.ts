@@ -123,39 +123,39 @@ viewProfile(user: any) {
     }
   }
 
-  updateProfile() {
-    const currentEmail = this.user.email.trim();
-    const updatedUser = { ...this.user };
+ updateProfile() {
+  const currentEmail = this.user.email.trim();
+  const updatedUser = { ...this.user };
 
-    // ✅ Phone Validation
-    if (!/^\d{11}$/.test(updatedUser.phone)) {
-      alert('Phone number must be exactly 11 digits.');
-      return;
-    }
+  // ✅ Phone Validation
+  if (!/^\d{11}$/.test(updatedUser.phone)) {
+    alert('Phone number must be exactly 11 digits.');
+    return;
+  }
 
-    // ✅ Username Uniqueness
-    const isUsernameTaken = this.users.some(
-      (u: any) => u.username === updatedUser.username && u.email !== currentEmail
-    );
-    if (isUsernameTaken) {
-      alert('Username already taken.');
-      return;
-    }
+  // ✅ Username Uniqueness
+  const isUsernameTaken = this.users.some(
+    (u: any) => u.username === updatedUser.username && u.email !== currentEmail
+  );
+  if (isUsernameTaken) {
+    alert('Username already taken.');
+    return;
+  }
 
-    // ✅ Attach Profile Image if selected
-    if (this.selectedFileBase64) {
-      updatedUser.profileImage = this.selectedFileBase64;
-    }
+  // ✅ Attach Profile Image if selected
+  if (this.selectedFileBase64) {
+    updatedUser.profileImage = this.selectedFileBase64;
+  }
 
-    // ✅ Update users array
-    const userIndex = this.users.findIndex((u: any) => u.email === currentEmail);
-    if (userIndex !== -1) {
-      this.users[userIndex] = updatedUser;
-      localStorage.setItem('signupUsers', JSON.stringify(this.users));
-      this.user = updatedUser;
-     localStorage.setItem('loggedInUser', JSON.stringify({ ...updatedUser, isLoggedIn: true }));
+  // ✅ Update users array
+  const userIndex = this.users.findIndex((u: any) => u.email === currentEmail);
+  if (userIndex !== -1) {
+    this.users[userIndex] = updatedUser;
+    localStorage.setItem('signupUsers', JSON.stringify(this.users));
+    this.user = updatedUser;
+    localStorage.setItem('loggedInUser', JSON.stringify({ ...updatedUser, isLoggedIn: true }));
 
-      // ✅ Update questions if any
+    // ✅ Update questions if any
     const questions = JSON.parse(localStorage.getItem('questions') || '[]');
     const updatedQuestions = questions.map((q: any) => {
       if (q.email === currentEmail || q.username === updatedUser.username) {
@@ -165,18 +165,20 @@ viewProfile(user: any) {
             ? updatedUser.profileImage
             : updatedUser.gender === 'Female'
               ? 'assets/Images/Female.png'
-              : 'assets/Images/Male.png'
+              : 'assets/Images/Male.png',
+          firstname: updatedUser.firstName,  // ✅ Update firstName
+          lastname: updatedUser.lastName    // ✅ Update lastName
         };
       }
       return q;
     });
     localStorage.setItem('questions', JSON.stringify(updatedQuestions));
 
-      alert('Profile updated successfully!');
-    } else {
-      alert('User not found.');
-    }
+    alert('Profile updated successfully!');
+  } else {
+    alert('User not found.');
   }
+}
 }
 
 

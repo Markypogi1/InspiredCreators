@@ -1,0 +1,79 @@
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
+<div class="home-container" id="usseersss">
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="assets/logo.png" alt="InspireCreators Logo" class="logo" />
+            <span class="brand-name">InspireCreators</span>
+        </div>
+        <nav class="menu">
+        <a class="menu-item active" routerLink="/admin">
+                    <i class="fas fa-question-circle"></i> Questions
+                </a>
+            <a class="menu-item" routerLink="/concerns" >
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+            
+            <a class="menu-item" routerLink="/viewUsers">
+                <i class="fas fa-users"></i> Users
+            </a>
+        </nav>
+
+        
+    </aside>
+
+    <div class="top-bar">
+        <button class="get-app-btn">Get App</button>
+        <div class="profile">
+            <span>Hi! {{ user?.lastName || 'User' }}</span>
+            <img  [src]="user.image" alt="Profile" class="profile-pic" />
+            <i class="fas fa-ellipsis-h dots-icon" (click)="toggleDropdown()"></i>
+
+            <!-- Dropdown Menu -->
+            <div *ngIf="isDropdownVisible" class="dropdown-menu">
+              <a (click)="logout()">Logout</a>
+            </div>
+          </div>
+    </div>
+  <div class="questions-container">
+  <h2  >Questions</h2>
+  <br>
+  <div *ngIf="questions.length === 0">No questions available.</div>
+  <div *ngFor="let question of questions" class="question-card">
+    <div class="question-header">
+      <img [src]="question.profile || 'assets/Images/Male.png'" alt="Profile" class="profile-pic" />
+      <div class="question-info">
+        <h4>{{ question.firstname }} {{ question.lastname }}</h4>
+        <p>{{ question.email }}</p>
+        <p><strong>Submitted:</strong> {{ question.dateAndTimeCreated | date:'medium' }}</p>
+      </div>
+    </div>
+    <div class="question-body">
+      <p><strong>Question:</strong> {{ question.question }}</p>
+      <p><strong>Description:</strong> {{ question.description }}</p>
+    </div>
+    <div class="question-actions">
+      <label for="status-{{question.id}}">Status:</label>
+     <select class="ask-btn" id="status-{{question.id}}" [value]="question.status" (change)="updateStatus(question.id, $any($event.target).value)">
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Declined">Declined</option>
+        </select>
+
+      <button class="deleteq-btn" (click)="deleteQuestion(question.id)  ">Delete</button>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+   
+   
+</div>

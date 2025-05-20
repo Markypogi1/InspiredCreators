@@ -65,7 +65,7 @@ allQuestions: any[] = [];        // Holds all original questions
     const userss = JSON.parse(localStorage.getItem('signupUsers') || '[]');
 
     const storedQuestions = JSON.parse(localStorage.getItem('questions') || '[]');
-    this.allQuestions = storedQuestions.filter((q: any) => q.status === 'Pending');
+    this.allQuestions = storedQuestions.filter((q: any) => q.status === 'Approved');
     this.questions = [...this.allQuestions];
 
     if (loggedInUser && loggedInUser.isLoggedIn) {
@@ -89,7 +89,7 @@ allQuestions: any[] = [];        // Holds all original questions
    // Load approved questions only
   const allQuestions = JSON.parse(localStorage.getItem('questions') || '[]');
   this.questions = allQuestions
-    .filter((q: any) => q.status === 'Pending')
+    .filter((q: any) => q.status === 'Approved')
     .map((q: any) => {
       const id = q.dateAndTimeCreated;
       this.views[id] = this.views[id] || 0;
@@ -242,20 +242,25 @@ contact = {
   email: '',
   message: ''
 };
-
-submitContact(form: any) {
+  submitContact(form: any) {
   if (form.invalid) {
     alert('Please fill out all the fields before submitting.');
     return;
   }
 
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+
   const newContact = {
-    
     name: this.contact.name,
     phone: this.contact.phone,
     email: this.contact.email,
     message: this.contact.message,
-    dateAndTimeCreated: new Date().toISOString()
+    dateAndTimeCreated: new Date().toISOString(),
+    profile: loggedInUser.profileImage
+      ? loggedInUser.profileImage
+      : (loggedInUser.gender === 'Female'
+          ? 'assets/Images/Female.png'
+          : 'assets/Images/Male.png')
   };
 
   const contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
@@ -264,7 +269,7 @@ submitContact(form: any) {
 
   alert('Your message has been submitted!');
 
-  // Optionally reset form and model
+  // Reset form and model
   form.resetForm();
   this.contact = {
     name: '',

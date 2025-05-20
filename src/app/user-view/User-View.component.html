@@ -1,0 +1,69 @@
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
+<div class="home-container" id="usseersss">
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="assets/logo.png" alt="InspireCreators Logo" class="logo" />
+            <span class="brand-name">InspireCreators</span>
+        </div>
+        <nav class="menu">
+       
+
+            <a class="menu-item" routerLink="/admin">
+                <i class="fas fa-question-circle"></i> Questions
+            </a>
+
+            <a class="menu-item" routerLink="/concerns" >
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+            
+            <a class="menu-item active" routerLink="/viewUsers">
+                <i class="fas fa-users"></i> Users
+            </a>
+        </nav>
+
+        
+    </aside>
+
+    <div class="top-bar">
+        <button class="get-app-btn">Get App</button>
+        <div class="profile">
+            <span>Hi! {{ user?.lastName || 'User' }}</span>
+            <img  [src]="user.image" alt="Profile" class="profile-pic" />
+            <i class="fas fa-ellipsis-h dots-icon" (click)="toggleDropdown()"></i>
+
+            <!-- Dropdown Menu -->
+            <div *ngIf="isDropdownVisible" class="dropdown-menu">
+              <a (click)="logout()">Logout</a>
+            </div>
+          </div>
+          
+    </div>
+    <div class="users-container2">
+  <h2>All Registered Users</h2>
+  <br>
+  <div class="user-card-container2">
+    <div *ngFor="let u of signupUsers" class="user-card2">
+      <img [src]="u.profileImage || (u.gender === 'Female' ? 'assets/Images/Female.png' : 'assets/Images/Male.png')" />
+      <div>
+        <p><strong>Name:</strong> {{ u.firstName }} {{ u.lastName }}</p>
+        <p><strong>Username:</strong> {{ u.username }}</p>
+        <p><strong>Email:</strong> {{ u.email }}</p>
+        <p><strong>Phone:</strong> {{ u.phone }}</p>
+        <p><strong>Gender:</strong> {{ u.gender }}</p>
+        <p><strong>Followers:</strong> {{ u.followers }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+   
+   
+</div>

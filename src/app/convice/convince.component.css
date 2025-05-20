@@ -89,5 +89,53 @@
     margin-right: auto;
   }
   
-  
+  @media (max-width: 600px) {
+  .container {
+    flex-direction: column; /* Stack vertically */
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .banner {
+    height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+
+  .billboard-image {
+    padding-top: 0;
+    border-radius: 15px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .body,
+  li {
+    font-size: 0.95rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .platform-logo {
+    width: 60%; /* Slightly smaller */
+  }
+}
+
   
